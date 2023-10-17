@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Flashcard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>FLASH CARD</h1>
+    <div id="flashcard">
+        <div class="side front">
+            <p>Question 1:</p>
+            <p class="question">What is the capital of France?</p>
+            <input type="text" class="input">
+        </div>
+        <div class="side back" id="back">
+            <p>Answer:</p>
+            <p class="answer">Paris</p>
+        </div>
+    </div>
+    <button onclick="flipCard()" class="button">Flip Card</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
