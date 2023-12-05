@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Flashcard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Create your flashcards:</h1>
+    
+    <div class="flashcard-form">
+        <label for="question">Question:</label><br>
+        <textarea id="question" rows="4" cols="50"></textarea>
+        <br><br><br>
+        <label for="answer">Answer:</label><br>
+        <textarea id="answer" rows="4" cols="50"></textarea><br><br>
+        <div class="buttons">
+            <div class="roundArrows previousArrow" onclick="addFlashcard()">Add flashcard</div>
+            <div class="roundArrows nextArrow" onclick="viewFlashcards()">View flashcard</div>
+        </div>
+        <p id="flashcardCount"></p>
+    </div>
+
+    <div class="flashcards" id="flashcards-container">
+        <!-- Flashcards will be dynamically added here -->
+    </div>
+
+    <script>
+        let flashcards = [];
+        let flashcardCounter = 0;
+
+        function addFlashcard() {
+            const question = document.getElementById('question').value;
+            const answer = document.getElementById('answer').value;
+            if (question && answer) {
+                const flashcard = { question, answer };
+                flashcards.push(flashcard);
+                flashcardCounter++;
+
+                // Clear input fields
+                document.getElementById('question').value = '';
+                document.getElementById('answer').value = '';
+
+                // Update flashcards and count in the DOM
+                updateFlashcardCount();
+            } else {
+                alert('Please enter both question and answer.');
+            }
+        }
+
+        function updateFlashcards() {
+            const flashcardsContainer = document.getElementById('flashcards-container');
+            flashcardsContainer.innerHTML = '';
+
+            flashcards.forEach((flashcard, index) => {
+                const card = document.createElement('div');
+                card.classList.add('flashcard');
+                card.innerHTML = `<strong>Question:</strong> ${flashcard.question}<br><strong>Answer:</strong> ${flashcard.answer}`;
+
+                flashcardsContainer.appendChild(card);
+            });
+        }
+
+        function updateFlashcardCount() {
+            const flashcardCountElement = document.getElementById('flashcardCount');
+            flashcardCountElement.textContent = `Success! you've added: ${flashcardCounter} flashcard`;
+            flashcardCountElement.style.color = 'green';
+        }
+
+        function showPreviousCard() {
+            // Implement logic to show the previous flashcard
+        }
+
+        function showNextCard() {
+            // Implement logic to show the next flashcard
+        }
+
+        function viewFlashcards() {
+            // Show the first flashcard by default
+            if (flashcards.length > 0) {
+                showFlashcard(0);
+            } else {
+                alert('No flashcards to view. Add flashcards first.');
+            }
+        }
+
+        function showFlashcard(index) {
+            // Display the flashcard at the given index
+            const flashcard = flashcards[index];
+            const flashcardContainer = document.getElementById('flashcards-container');
+            flashcardContainer.innerHTML = `<div class="flashcard">
+                <strong>Question:</strong> ${flashcard.question}<br>
+                <strong>Answer:</strong> ${flashcard.answer}
+            </div>`;
+            updateFlashcards();
+        }
+    </script>
+</body>
+</html>
