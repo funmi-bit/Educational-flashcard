@@ -169,8 +169,46 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Event listener for the "view answer" button
-    viewAnswerButton.addEventListener('click', flipCard);
-
-    // Rest of your code...
+    viewAnswerButton.addEventListener('click', flipCard);  
 
 });
+document.addEventListener("DOMContentLoaded", function () {
+    let flashcards = [];
+    let currentCardIndex = 0;
+
+    const showCard = (index) => {
+        const countQuestions = document.querySelector('.countQuestions span');
+        countQuestions.innerText = `${index + 1}/${flashcards.length}`;
+
+        const currentFlashcard = flashcards[index];
+        document.querySelector('.question').innerText = currentFlashcard.question;
+        document.querySelector('.answer').innerText = currentFlashcard.answer;
+
+        // Clear user's previous answer
+        document.getElementById('userAnswer').value = '';
+    };
+    
+    const checkAnswer = () => {
+        const userAnswer = document.getElementById('userAnswer').value.toLowerCase();
+        const correctAnswer = flashcards[currentCardIndex].answer.toLowerCase();
+
+        if (userAnswer === correctAnswer) {
+            alert("Correct!");
+        } else {
+            alert("Incorrect! The correct answer is: " + correctAnswer);
+        }
+    };
+
+    document.querySelector('.checkAnswer').addEventListener('click', checkAnswer);
+
+    fetch('flashcards.json')
+        .then(response => response.json())
+        .then(data => {
+            flashcards = data;
+            showCard(currentCardIndex);
+        })
+        .catch(error => console.error('Error loading flashcards:', error));
+});
+
+
+

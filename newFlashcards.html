@@ -19,6 +19,7 @@
         <div class="buttons">
             <div class="roundArrows previousArrow" onclick="addFlashcard()">Add flashcard</div>
             <div class="roundArrows nextArrow" onclick="viewFlashcards()">View flashcard</div>
+            <div class="roundArrows saveArrow" onclick="saveFlashcards()">Save flashcards</div>
         </div>
         <p id="flashcardCount"></p>
     </div>
@@ -48,6 +49,15 @@
             } else {
                 alert('Please enter both question and answer.');
             }
+        }
+
+        function saveFlashcards() {
+            const content = flashcards.map(flashcard => `${flashcard.question}\n${flashcard.answer}\n`).join('\n');
+            const blob = new Blob([content], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'flashcards.txt';
+            a.click();
         }
 
         function updateFlashcards() {

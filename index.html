@@ -17,20 +17,18 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="question"></div>
-                    <div class="inputAnswer"> 
-                    <input type="text" class="input">
-                    <button class="submitAnswer">Enter</button>
-                </div>
+                    <input type="text" id="userAnswer" placeholder="Your Answer">
+                    <button onclick="checkAnswer()" class="check">Check Answer</button>
                 </div>
                 <div class="flip-card-back">
                     <div class="answer"></div>
+
                 </div>
             </div>
         </div>
     </div>
-    <button class="viewA">view answer</button>
+    <button class="viewA">View Answer</button>
     <p class="instruction">Double click and hold mouse to view answer</p>
-
 
     <!-- Navigation Arrows -->
     <span class="roundArrows">
@@ -42,6 +40,7 @@
     </span>
     <h1><a href="newFlashcards.html">Click here to create flashcards</a></h1>
 
+   
 </body>
 
 </html>
