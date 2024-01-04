@@ -59,8 +59,18 @@ body {
     padding: 10px;
     cursor: pointer;
     display: flex;
+    justify-content: center;
+    
 }
-
+.saveArrow{
+    background-color: rgb(211, 214, 214);
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 h1 {
     text-align: center;
 }
@@ -88,15 +98,13 @@ h1 {
 }
 
 .previousArrow,
-.nextArrow {
+.nextArrow, .saveArrow {
     background-color: rgb(211, 214, 214);
     padding: 8px 16px;
     border-radius: 20px;
-}
-
-.roundArrows {
     margin-right: 25px;
 }
+
 
 a {
     text-decoration: none;
