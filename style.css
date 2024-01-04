@@ -8,119 +8,104 @@ body {
     margin: 0;
 }
 
-.first_card, .second_card, .third_card, .fourth_card,
-.fifth_card, .sixth_card,
-.seventh_card, .eighth_card, .nineth_card, .tenth_card{
-
+.flip-card {
     background-color: transparent;
     width: 500px;
     height: 300px;
     border: 1px solid #f1f1f1;
-    perspective: 1000px
-   
+    perspective: 1000px;
 }
 
-
-.firstQuestionFront, .secondQuestionFront, .thirdQuestionFront, .fourthQuestionFront,
-.fifthQuestionFront, .sixthQuestionFront, .seventhQuestionFront, .eighthQuestionFront, .ninethQuestionFront,
-.tenthQuestionFront{
-    transform: rotateY(0deg);
-    background-color: #f4c9c9d6;
-    height:300px;
-    text-align: center;
-    box-sizing: border-box;
-    position: absolute;
+.flip-card-inner {
+    position: relative;
     width: 100%;
     height: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
-
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
 }
 
-.firstQuestionBack, .secondQuestionBack, .thirdQuestionBack, .fourthQuestionBack, 
-.fifthQuestionBack, .sixthQuestionBack, .seventhQuestionBack, .eighthQuestionBack,
-.ninethQuestionBack, .tenthQuestionBack
-{
+.viewAnswer:active .flip-card-inner {
     transform: rotateY(180deg);
-    background-color: #6e1e89;
-    height:300px;
+}
+
+.flip-card-front,
+.flip-card-back {
+    background-color: #f4c9c9d6;
+    height: 100%;
     text-align: center;
     box-sizing: border-box;
     position: absolute;
     width: 100%;
-    height: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     backface-visibility: hidden;
-    color:white
 }
-.firstInner, .secondInner, .thirdInner, .fourthInner,
-.fifthInner, .sixthInner, .seventhInner, .eighthInner,
-.ninethInner, .tenthInner{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-.first_card:active .firstInner, .second_card:active .secondInner, .third_card:active .thirdInner,
-.fourth_card:active .fourthInner, .fifth_card:active .fifthInner, .sixth_card:active .sixthInner, .seventh_card:active .seventhInner,
-.eighth_card:active .eighthInner, .nineth_card:active .ninethInner, .tenth_card:active .tenthInner
-{
+
+.flip-card-back {
     transform: rotateY(180deg);
-  }
+    background-color: #6e1e89;
+    color: white;
+}
+
 .buttons {
     margin-top: 20px;
     padding: 10px;
     cursor: pointer;
-    display:flex;
-
+    display: flex;
 }
 
-h1{
+h1 {
     text-align: center;
 }
-.FirstInput, .secondInput, .thirdInput,  .fourthInput,
-.fifthInput, .sixthInput, .seventhInput,  .eighthInput,
-.ninethInput, .tenthInput
-{
-    width:200px;
+
+.FirstInput,
+.secondInput,
+.thirdInput,
+.fourthInput,
+.fifthInput,
+.sixthInput,
+.seventhInput,
+.eighthInput,
+.ninethInput,
+.tenthInput {
+    width: 200px;
     align-self: center;
 }
-.instruction{
+
+.instruction {
     background-color: rgb(5, 9, 9);
-    color:#f1f1f1;
-    width:500px;
-    height:30px;
-    text-align:center;
+    color: #f1f1f1;
+    width: 500px;
+    height: 30px;
+    text-align: center;
 }
-.previousArrow{
+
+.previousArrow,
+.nextArrow {
     background-color: rgb(211, 214, 214);
     padding: 8px 16px;
     border-radius: 20px;
 }
-.nextArrow{
-    background-color: rgb(211, 214, 214);
-    padding: 8px 16px;
-    border-radius: 20px;
-}
-.roundArrows{
+
+.roundArrows {
     margin-right: 25px;
 }
-a{
-   text-decoration: none;
-}
-.second_card, .third_card, .fourth_card, .fifth_card, .sixth_card,
-.seventh_card, .eighth_card, .nineth_card, .tenth_card
-{
-    display:none;
-}
 
-
+a {
+    text-decoration: none;
+}
+.inputAnswer{
+    display:flex;
+}
+.submitAnswer{
+    width:15%;
+   
+   
+}
+.input{
+    margin-left:100px;
+}
