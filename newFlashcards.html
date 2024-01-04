@@ -28,6 +28,7 @@
     <div class="flashcards" id="flashcards-container">
         <!-- Flashcards will be dynamically added here -->
     </div>
+    <button class="shareButton">Share flashcard</button>
 
     <script>
         let flashcards = [];
@@ -53,12 +54,17 @@
         }
 
         function saveFlashcards() {
+            if (question && answer) {
             const content = flashcards.map(flashcard => `${flashcard.question}\n${flashcard.answer}\n`).join('\n');
             const blob = new Blob([content], { type: 'text/plain' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = 'flashcards.txt';
             a.click();
+            }
+            else{
+                alert("flashcard is empty");
+            }
         }
 
         function updateFlashcards() {
@@ -107,6 +113,21 @@
             </div>`;
             updateFlashcards();
         }
+        // function to share flashcard
+        const shareFlashcards = () => {
+        if (navigator.share) {
+            navigator.share({
+                title: 'My Flashcards',
+                text: 'Check out my flashcards!',
+                url: window.location.href
+            })
+                .then(() => console.log('Successfully shared'))
+                .catch((error) => console.error('Error sharing:', error));
+        } else {
+            alert("Web Share API not supported in your browser.");
+        }
+    };
+    document.querySelector('.shareButton').addEventListener('click', shareFlashcards)
     </script>
 </body>
 </html>

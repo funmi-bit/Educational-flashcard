@@ -1,6 +1,4 @@
 
-
-
 function updateFlashcards() {
     const flashcardsContainer = document.getElementById('flashcards-container');
     flashcardsContainer.innerHTML = '';

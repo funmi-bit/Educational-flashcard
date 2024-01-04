@@ -133,16 +133,61 @@ document.addEventListener("DOMContentLoaded", function () {
             showCard(currentCardIndex);
         }
     };
-
-    const correct = "Correct!";
-    const incorrect = "incorrect!";
-    const FirstAnswerInput = document.getElementById('input').value;
-    document.querySelector('.submitAnswer').addEventListener('click', showNextCard);
-
-
-    if(FirstAnswerInput){
-
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        let flashcards = [];
+        let currentCardIndex = 0;
+    
+        const showCard = (index) => {
+            const countQuestions = document.querySelector('.countQuestions span');
+            countQuestions.innerText = `${index + 1}/${flashcards.length}`;
+    
+            const currentFlashcard = flashcards[index];
+            document.querySelector('.question').innerText = currentFlashcard.question;
+            document.querySelector('.answer').innerText = currentFlashcard.answer;
+    
+            // Clear user's previous answer
+            document.getElementById('userAnswer').value = '';
+        };
+    
+        const checkAnswer = () => {
+            const userAnswer = document.getElementById('userAnswer').value.toLowerCase();
+            const correctAnswer = flashcards[currentCardIndex].answer.toLowerCase();
+    
+            if (userAnswer === correctAnswer) {
+                alert("Correct!");
+            } else {
+                alert("Incorrect! The correct answer is: " + correctAnswer);
+            }
+        };
+    
+        const showNextCard = () => {
+            if (currentCardIndex < flashcards.length - 1) {
+                checkAnswer(); // Check the user's answer before moving to the next card
+                currentCardIndex++;
+                showCard(currentCardIndex);
+            }
+        };
+    
+        const showPreviousCard = () => {
+            if (currentCardIndex > 0) {
+                currentCardIndex--;
+                showCard(currentCardIndex);
+            }
+        };
+    
+        document.querySelector('.checkAnswer').addEventListener('click', checkAnswer);
+        document.querySelector('.nextArrow').addEventListener('click', showNextCard);
+        document.querySelector('.previousArrow').addEventListener('click', showPreviousCard);
+    
+        fetch('flashcards.json')
+            .then(response => response.json())
+            .then(data => {
+                flashcards = data;
+                showCard(currentCardIndex);
+            })
+            .catch(error => console.error('Error loading flashcards:', error));
+    });
+    
 
     // Initial display of the first flashcard
     showCard(currentCardIndex);
