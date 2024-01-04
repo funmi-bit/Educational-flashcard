@@ -7,6 +7,9 @@ body {
     height: 100vh;
     margin: 0;
 }
+.homepage{
+    margin-right:1050px;
+}
 
 .flip-card {
     background-color: transparent;
