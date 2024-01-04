@@ -21,4 +21,8 @@ the video below shows "back to home page" link which enable users to go back to 
 
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/7821d3c4-0e14-4cbe-bd72-52469923eb11
 
+A new button is added"save flashcard"  This is a visual display of how save dflashcard button works
+
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/52aa9607-ba6a-46fe-a6c7-c4a9b19febc3
+
 
