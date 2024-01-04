@@ -11,5 +11,11 @@ This application is modified to be an interactive flashcard tool where users can
 
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/1e92322a-ea23-4a10-ac97-fb7433216680
 
+when a user add anew flashcard, a message shows up to notify that a flashcard has been added and also count the number of flashcard that is being added. but when add flashcard button is clicked without adding any question and answer in the box, a pop up message shows up telling the user to add flashcard.
+To enable adding flashcards, I created a function `addFlashcard()` that retrieves user input, creates a flashcard object, and adds it to an array. The "View Answer" button triggers the `flipCard()` function, toggling card visibility by rotating the card element. These functions are connected to HTML elements with event listeners, providing an interactive experience where users can add flashcards and reveal answers through card flipping.
+
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/0fb463b5-17bc-404c-af8f-8cedb72d44bb
+
+
 
 
