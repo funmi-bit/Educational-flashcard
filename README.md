@@ -17,6 +17,8 @@ To enable adding flashcards, I created a function `addFlashcard()` that retrieve
 
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/0fb463b5-17bc-404c-af8f-8cedb72d44bb
 
+the video below shows "back to homep page" link which enable users too go back to the home page.
 
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/7821d3c4-0e14-4cbe-bd72-52469923eb11
 
 
