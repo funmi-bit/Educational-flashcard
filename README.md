@@ -14,15 +14,15 @@ https://github.com/funmi-bit/Educational-flashcard/assets/89481955/1e92322a-ea23
 
 when a user add anew flashcard, a message shows up to notify that a flashcard has been added and also count the number of flashcard that is being added. but when add flashcard button is clicked without adding any question and answer in the box, a pop up message shows up telling the user to add flashcard.
 To enable adding flashcards, I created a function `addFlashcard()` that retrieves user input, creates a flashcard object, and adds it to an array. The "View Answer" button triggers the `flipCard()` function, toggling card visibility by rotating the card element. These functions are connected to HTML elements with event listeners, providing an interactive experience where users can add flashcards and reveal answers through card flipping.
-
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/0fb463b5-17bc-404c-af8f-8cedb72d44bb
 
 the video below shows "back to home page" link which enable users to go back to the home page.
-
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/7821d3c4-0e14-4cbe-bd72-52469923eb11
 
 A new button is added"save flashcard"  This is a visual display of how save dflashcard button works
-
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/52aa9607-ba6a-46fe-a6c7-c4a9b19febc3
+
+visual display of the modified background for save flashcard button
+![image](https://github.com/funmi-bit/Educational-flashcard/assets/89481955/d0557cc9-0f89-4b66-8c1a-4677824d02b3)
 
 
