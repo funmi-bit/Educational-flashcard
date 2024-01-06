@@ -40,3 +40,6 @@ https://github.com/funmi-bit/Educational-flashcard/assets/89481955/57ba11bb-0e8e
 visual display below shows the scroll bar that is being added to "newFlashcard" page. enabling user to scroll through their generated question and ansswer. also, the scroll bar is placed at the right for a better visibility.
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/bcdc8f87-71e3-4545-bd72-4d1cba8ce1fb
 
+visual display shows horizontal scroll bar being added to the page for a better visibility.
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/ab2c8dd3-3f48-455a-a666-60f699eae306
+
