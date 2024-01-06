@@ -37,6 +37,6 @@ https://github.com/funmi-bit/Educational-flashcard/assets/89481955/14da0492-216e
 Output shows sound on flipping flashcard when view answer button is clicked. also, when a mouse ointer points to the volume image, read aloud text shows up to show users that the image is meant to read text aloud
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/57ba11bb-0e8e-48cb-b243-07358ad12372
 
-visual display below shows the scroll bar that is being added to create flashcard page. enabling user to scroll through their generated wuestion and ansswer. also, the scroll bar is placed at the right for a better visibility.
+visual display below shows the scroll bar that is being added to "newFlashcard" page. enabling user to scroll through their generated wuestion and ansswer. also, the scroll bar is placed at the right for a better visibility.
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/bcdc8f87-71e3-4545-bd72-4d1cba8ce1fb
 
