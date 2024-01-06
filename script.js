@@ -211,13 +211,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to flip the card
     const flipCard = () => {
         isFlipped = !isFlipped;
-        flipCardInner.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+
+        // Add a delay (in milliseconds) before playing the flip sound
+        const delayBeforeFlipSound = 500; // Adjust the delay as needed
+        setTimeout(() => {
+            flipCardInner.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+            playFlipSound(); // Call playFlipSound after the delay
+        }, delayBeforeFlipSound);
     };
 
     // Event listener for the "view answer" button
-    viewAnswerButton.addEventListener('click', flipCard);  
+    viewAnswerButton.addEventListener('click', flipCard);
 
+    // Rest of your code...
+
+    function playFlipSound() {
+        let flipSound = document.getElementById('flipSound');
+        flipSound.play();
+    }
 });
+
+
 document.addEventListener("DOMContentLoaded", function () {
     let flashcards = [];
     let currentCardIndex = 0;
@@ -279,5 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error loading flashcards:', error));
 });
 
-
-
+function playFlipSound() {
+    let flipSound = document.getElementById('flipSound');
+    flipSound.play();
+}

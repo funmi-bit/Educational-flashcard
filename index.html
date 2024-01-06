@@ -6,37 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Flashcard</title>
     <link rel="stylesheet" href="style.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-MQCEmHDtK3hW19Iz3qVn/7zmxFlgCY2SssUek4FkN5Wg6P2zFf5aT91yegLrSNCz" crossorigin="anonymous">
+    <audio id="flipSound" src="flipcard.mp3"></audio>
+
     <script src="script.js"></script>
 </head>
 
 <body>
     <h1>FLASH CARD</h1>
-       <!-- Flip Card Container -->
-       <div class="flip-card-container">
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <a href="#" class="readQuestion"  onclick="readQuestion()">
-                    <img src="volume.png" alt="read text aloud"  class="volumeImage"width="10%"></a>
-                    <div class="question"></div>
-                    <input type="text" id="userAnswer" placeholder="Your Answer">
-                    <button class="checkAnswer">Check Answer</button>
-                
-               
-                </div>
-                <div class="flip-card-back">
-                    <a href="#" class="readAnswer" onclick="readAnswer()">
-                    <img src="volume.png" alt="read text aloud"  class="volumeImage"width="10%"></a>
+<!-- Flip Card Container -->
+<div class="flip-card-container">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="tooltip-wrapper">
+                    <a href="#" class="readQuestion" onclick="readQuestion()">
+                        <img src="volume.png" alt="read text aloud" class="volumeImage" width="10%">
+                        <span class="tooltip-text">Read Aloud</span>
                     </a>
-                    <div class="answer"></div>
-
-
                 </div>
+                <div class="question"></div>
+                <input type="text" id="userAnswer" placeholder="Your Answer">
+                <button class="checkAnswer">Check Answer</button>
+            </div>
+            <div class="flip-card-back">
+                <div class="tooltip-wrapper">
+                    <a href="#" class="readAnswer" onclick="readAnswer()">
+                        <img src="volume.png" alt="read text aloud" class="volumeImage" width="10%">
+                        <span class="tooltip-text">Read Aloud</span>
+                    </a>
+                </div>
+                <div class="answer"></div>
             </div>
         </div>
     </div>
-    <button class="viewA">View Answer</button>
+</div>
+
+    <button class="viewA" onclick="playFlipSound()">View Answer</button>
+
     <!-- Navigation Arrows -->
     <span class="roundArrows">
         <a href="#" class="previousArrow">&#8249;</a>
