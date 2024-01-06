@@ -31,7 +31,7 @@ https://github.com/funmi-bit/Educational-flashcard/assets/89481955/ece98029-25cd
 The modified share flashcard button is showed below. the button is being tested on firefox and google chrome browsers to see the differences when share button is clicked on differeent browsers. when question and answer input box is empty, a message showed up telling a user to add flashcard first before sharing.
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/5fbe95fe-3bf2-4ae7-a558-bab831052dc2
 
-This is a visual display of text to spech multimedia, where questions and answers can be read aloud when user clicks on volume image. also user can type their answer and see response on alert box. but it only works forquestion one.
+This is a visual display of text to spech multimedia, where questions and answers can be read aloud when user clicks on volume image. also user can type their answer and see response on alert box. but it only works for question one.
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/14da0492-216e-4e05-a981-e29ca50e1e0d
 
 
