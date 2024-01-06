@@ -28,7 +28,19 @@
     <div class="flashcards" id="flashcards-container">
         <!-- Flashcards will be dynamically added here -->
     </div>
-    <button class="shareButton">Share flashcard</button>
+    <button class="shareButton" onclick="shareFlashcards()">Share flashcard</button>
+
+    <!-- Placeholder for displaying the message when no flashcards are available -->
+    <p class="emptyFlashcard"></p>
+
+    <!-- Custom modal overlay and container -->
+    <div class="overlay" id="modalOverlay">
+        <div class="modal" id="modalContainer">
+            <span onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
+            <h2>Flashcard Information</h2>
+            <div id="modalContent"></div>
+        </div>
+    </div>
 
     <script>
         let flashcards = [];
@@ -54,16 +66,15 @@
         }
 
         function saveFlashcards() {
-            if (question && answer) {
-            const content = flashcards.map(flashcard => `${flashcard.question}\n${flashcard.answer}\n`).join('\n');
-            const blob = new Blob([content], { type: 'text/plain' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'flashcards.txt';
-            a.click();
-            }
-            else{
-                alert("flashcard is empty");
+            if (flashcards.length > 0) {
+                const content = flashcards.map(flashcard => `${flashcard.question}\n${flashcard.answer}\n`).join('\n');
+                const blob = new Blob([content], { type: 'text/plain' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'flashcards.txt';
+                a.click();
+            } else {
+                alert("No flashcards to save. Add flashcards first.");
             }
         }
 
@@ -76,6 +87,8 @@
                 card.classList.add('flashcard');
                 card.innerHTML = `<strong>Question:</strong> ${flashcard.question}<br><strong>Answer:</strong> ${flashcard.answer}`;
 
+                card.addEventListener('click', () => showFlashcard(index));
+
                 flashcardsContainer.appendChild(card);
             });
         }
@@ -84,14 +97,9 @@
             const flashcardCountElement = document.getElementById('flashcardCount');
             flashcardCountElement.textContent = `Success! you've added: ${flashcardCounter} flashcard`;
             flashcardCountElement.style.color = 'green';
-        }
 
-        function showPreviousCard() {
-            // Implement logic to show the previous flashcard
-        }
-
-        function showNextCard() {
-            // Implement logic to show the next flashcard
+            // Hide the empty flashcard message when flashcards are available
+            document.querySelector('.emptyFlashcard').textContent = '';
         }
 
         function viewFlashcards() {
@@ -99,7 +107,7 @@
             if (flashcards.length > 0) {
                 showFlashcard(0);
             } else {
-                alert('No flashcards to view. Add flashcards first.');
+                document.querySelector('.emptyFlashcard').textContent = 'No flashcards to view. Add flashcards first.';
             }
         }
 
@@ -113,21 +121,58 @@
             </div>`;
             updateFlashcards();
         }
-        // function to share flashcard
+
+        // Custom "Super Share" function using Clipboard API
+        const superShareFlashcards = async () => {
+            if (flashcards.length > 0) {
+                try {
+                    const content = flashcards.map(flashcard => `Question: ${flashcard.question}\nAnswer: ${flashcard.answer}\n\n`).join('');
+                    await navigator.clipboard.writeText(content);
+                    alert('Flashcard text copied to clipboard. You can now share it.');
+                } catch (error) {
+                    console.error('Error copying to clipboard:', error);
+                }
+            } else {
+                document.querySelector('.emptyFlashcard').textContent = 'No flashcards to share. Add flashcards first.';
+            }
+        };
+
+        // Web Share API function
+        const webShareFlashcards = async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'My Flashcards',
+                        text: 'Check out my flashcards!',
+                        url: window.location.href
+                    });
+                } catch (error) {
+                    console.error('Error sharing:', error);
+                }
+            } else {
+                superShareFlashcards(); // Fallback to superShare if Web Share API is not supported
+            }
+        };
+
+        // Close the custom modal
+        const closeModal = () => {
+            document.getElementById('modalOverlay').style.display = 'none';
+        };
+
+        // Share flashcards function
         const shareFlashcards = () => {
-        if (navigator.share) {
-            navigator.share({
-                title: 'My Flashcards',
-                text: 'Check out my flashcards!',
-                url: window.location.href
-            })
-                .then(() => console.log('Successfully shared'))
-                .catch((error) => console.error('Error sharing:', error));
-        } else {
-            alert("Web Share API not supported in your browser.");
-        }
-    };
-    document.querySelector('.shareButton').addEventListener('click', shareFlashcards)
+            if (flashcards.length > 0) {
+                if (navigator.share) {
+                    webShareFlashcards(); // Use Web Share API
+                } else {
+                    superShareFlashcards(); // Fallback to superShare if Web Share API is not supported
+                }
+            } else {
+                document.querySelector('.emptyFlashcard').textContent = 'No flashcards to share. Add flashcards first.';
+            }
+        };
+
+        document.querySelector('.shareButton').addEventListener('click', shareFlashcards);
     </script>
 </body>
 </html>
