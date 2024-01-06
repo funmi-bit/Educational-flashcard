@@ -34,5 +34,10 @@ https://github.com/funmi-bit/Educational-flashcard/assets/89481955/5fbe95fe-3bf2
 This is a visual display of text to spech multimedia, where questions and answers can be read aloud when user clicks on volume image. also user can type their answer and see response on alert box. but it only works for question one.
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/14da0492-216e-4e05-a981-e29ca50e1e0d
 
+Output shows sound on flipping flashcard when view answer button is clicked. also, when a mouse ointer points to the volume image, read aloud text shows up to show users that the image is meant to read text aloud
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/57ba11bb-0e8e-48cb-b243-07358ad12372
+
+
+
 
 
