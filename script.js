@@ -297,3 +297,77 @@ function playFlipSound() {
     let flipSound = document.getElementById('flipSound');
     flipSound.play();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    let userFlashcards = []; // Store user-generated flashcards separately
+    let currentCardIndex = 0;
+
+    const showCard = (index) => {
+        const countQuestions = document.querySelector('.countQuestions span');
+        countQuestions.innerText = `${index + 1}/${userFlashcards.length}`;
+
+        const currentFlashcard = userFlashcards[index];
+        document.querySelector('.question').innerText = currentFlashcard.question;
+        document.querySelector('.answer').innerText = currentFlashcard.answer;
+
+        // Clear user's previous answer
+        document.getElementById('userAnswer').value = '';
+    };
+
+    // Function to add a new user-generated flashcard
+    window.addFlashcard = () => {
+        const questionInput = document.getElementById('question').value;
+        const answerInput = document.getElementById('answer').value;
+
+        if (questionInput && answerInput) {
+            const newFlashcard = { question: questionInput, answer: answerInput };
+            userFlashcards.push(newFlashcard);
+
+            document.getElementById('question').value = '';
+            document.getElementById('answer').value = '';
+
+            currentCardIndex = userFlashcards.length - 1;
+            showCard(currentCardIndex);
+        } else {
+            alert('Please enter both question and answer.');
+        }
+    };
+
+    // Function to save user-generated flashcards
+    window.saveFlashcards = () => {
+        if (userFlashcards.length > 0) {
+            const content = userFlashcards.map(flashcard => `${flashcard.question}\n${flashcard.answer}\n`).join('\n');
+            const blob = new Blob([content], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'user_flashcards.txt';
+            a.click();
+        } else {
+            alert('No user-generated flashcards to save. Add flashcards first.');
+        }
+    };
+
+    // Function to update user-generated flashcards
+    const updateUserFlashcards = () => {
+        const flashcardsContainer = document.getElementById('flashcards-container');
+        flashcardsContainer.innerHTML = '';
+
+        for (let i = 0; i < userFlashcards.length; i++) {
+            const flashcard = userFlashcards[i];
+            const card = document.createElement('div');
+            card.classList.add('flashcard');
+            card.innerHTML = `<strong>Question:</strong> ${flashcard.question}<br><strong>Answer:</strong> ${flashcard.answer}`;
+            flashcardsContainer.appendChild(card);
+        }
+    };
+
+    // Initial display of the first user-generated flashcard
+    showCard(currentCardIndex);
+
+    // Event listeners for next and previous arrows
+    document.querySelector('.nextArrow').addEventListener('click', () => showCard(++currentCardIndex % userFlashcards.length));
+    document.querySelector('.previousArrow').addEventListener('click', () => showCard((--currentCardIndex + userFlashcards.length) % userFlashcards.length));
+
+    // Expose addFlashcard function globally for the onclick attribute in HTML
+    window.addFlashcard = addFlashcard;
+});

@@ -1,12 +1,22 @@
+
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
 }
+/* Add this to your existing CSS styles */
+.flashcards-container {
+    overflow: scroll;
+    width: 30%; /* Adjust the width based on your preference */
+    margin-left: auto;
+    margin-right: 20px; /* Adjust the right margin for spacing */
+ 
+}
+
 .homepage{
     margin-right:1050px;
 }
@@ -89,13 +99,6 @@ h1 {
     align-self: center;
 }
 
-.instruction {
-    background-color: rgb(5, 9, 9);
-    color: #f1f1f1;
-    width: 500px;
-    height: 30px;
-    text-align: center;
-}
 
 .previousArrow,
 .nextArrow, .saveArrow {
@@ -121,9 +124,7 @@ a {
     margin-left:100px;
 }
 
-.flashcard {
-    perspective: 1000px;
-}
+
 
 .card-inner {
     width: 100%;
@@ -168,6 +169,74 @@ a {
 .flipped .card-inner {
     transform: rotateY(180deg);
 }
+.volumeImage{
+    float: right;
+}
+.readAloud{
+    display: none;
+}
+
+/* Add this to your existing CSS styles */
+.tooltip-wrapper {
+    position:relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    position: absolute;
+    top: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+    opacity: 1;
+}
+.flashcards-container{
+    overflow: scroll;
+}
+
+
+/* Add media query for smaller screens */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: medium; /* Adjusted font size for smaller screens */
+    }
+
+    .flip-card {
+        width: 100%; /* Adjusted width for smaller screens */
+    }
+
+
+    .previousArrow,
+    .nextArrow,
+    .saveArrow {
+        margin-right: 5px; /* Adjusted margin for better spacing on smaller screens */
+    }
+.flip-card-container{
+    width:400px;
+   
+}
+h1{
+    width: 90%;
+    text-align:center;
+    font-size: large;
+}
+.homepage{
+    width:100%;
+    margin-right:5px;
+    font-size: small;
+}
+    
+}
+
 .overlay {
     display: none;
     position: fixed;
