@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
             // Clear user's previous answer
             document.getElementById('userAnswer').value = '';
+            
         };
     
         const checkAnswer = () => {
@@ -244,7 +245,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    const readQuestion = () => {
+        const questionText = document.querySelector('.question').innerText;
+        const answerText = document.querySelector('.answer').innerText;
+
+        const speechSynthesis = window.speechSynthesis;
+        const speechUtterance = new SpeechSynthesisUtterance(questionText, answerText);
+        speechSynthesis.speak(speechUtterance);
+    };
+
     document.querySelector('.checkAnswer').addEventListener('click', checkAnswer);
+    document.querySelector('.readQuestion').addEventListener('click', readQuestion);
+
+
+    const readAnswer = () => {
+        const answerText = document.querySelector('.answer').innerText;
+    
+        const speechSynthesis = window.speechSynthesis;
+        const speechUtterance = new SpeechSynthesisUtterance(answerText);
+        speechSynthesis.speak(speechUtterance);
+    };
+    
+    // Add event listener for reading the answer
+    document.querySelector('.readAnswer').addEventListener('click', readAnswer);
+    
 
     fetch('flashcards.json')
         .then(response => response.json())
