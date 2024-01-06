@@ -28,4 +28,9 @@ visual display of the modified background for save flashcard button
 Visual display shows how share flashcard button works. the web share API is only supported by some browsers. the video below shows that the sharing function is not supported on firefox but supported on google chrome and opera browsers
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/ece98029-25cd-47bc-a0f7-7be8f54d01b7
 
+The modified share flashcard button is showed below. the button is being tested on firefox and google chrome browsers to see the differences when share button is clicked on differeent browsers. when question and answer input box is empty, a message showed up telling a user to add flashcard first before sharing.
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/5fbe95fe-3bf2-4ae7-a558-bab831052dc2
+
+
+
 
