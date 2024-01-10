@@ -43,3 +43,9 @@ https://github.com/funmi-bit/Educational-flashcard/assets/89481955/bcdc8f87-71e3
 visual display shows horizontal scroll bar being added to the page for a better visibility.
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/ab2c8dd3-3f48-455a-a666-60f699eae306
 
+vidual display shows user ansering the questions and checks for correct answer by clicking on check answer button
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/1a43b1ba-e5ce-42c8-a57b-173682f740c2
+
+
+
+
