@@ -46,6 +46,17 @@ https://github.com/funmi-bit/Educational-flashcard/assets/89481955/ab2c8dd3-3f48
 vidual display shows user ansering the questions and checks for correct answer by clicking on check answer button
 https://github.com/funmi-bit/Educational-flashcard/assets/89481955/1a43b1ba-e5ce-42c8-a57b-173682f740c2
 
+In the Flashcard application, users start by seeing a clean, user-friendly interface displaying a question. They can listen to the question, type their answer, and click "Check Answer." Instant feedback is provided, indicating correctness or suggesting the correct answer. Navigation arrows allow users to move between flashcards. The app supports keyboard shortcuts for accessibility. Users can create, view, and save flashcards on a separate page. The sharing feature enables them to share flashcards, making it a comprehensive, interactive tool for learning and revising information in a personalized, accessible manner.the app also works in variety of browsers and devices whichserves as a responsive design to all users.
+
+![image](https://github.com/funmi-bit/Educational-flashcard/assets/89481955/42e7db31-714e-452a-a66f-ee5f61603703)
+![image](https://github.com/funmi-bit/Educational-flashcard/assets/89481955/8bc020ba-28f6-4328-b32a-a31a0b63cecc)
+![image](https://github.com/funmi-bit/Educational-flashcard/assets/89481955/39b77064-3e62-4330-ad03-bfd6dc71320c)
+https://github.com/funmi-bit/Educational-flashcard/assets/89481955/6b2f0e99-3131-4a7b-8484-27be3dffc232
+![image](https://github.com/funmi-bit/Educational-flashcard/assets/89481955/d4b2a4dc-aa9d-48ff-84ad-6a29c320de07)
+
+![image](https://github.com/funmi-bit/Educational-flashcard/assets/89481955/7381c26b-a83d-4713-850e-e347f17960cb)
+
+
 
 
 
