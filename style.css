@@ -1,24 +1,22 @@
-
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
 }
-/* Add this to your existing CSS styles */
+
 .flashcards-container {
     overflow: scroll;
-    width: 30%; /* Adjust the width based on your preference */
+    width: 30%;
     margin-left: auto;
-    margin-right: 20px; /* Adjust the right margin for spacing */
- 
+    margin-right: 20px;
 }
 
-.homepage{
-    margin-right:1050px;
+.homepage {
+    margin-right: 1050px;
 }
 
 .flip-card {
@@ -70,17 +68,19 @@ body {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    
 }
-.saveArrow{
+
+.saveArrow {
     background-color: rgb(211, 214, 214);
     margin-top: 20px;
+    margin-left: 110px;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
+
 h1 {
     text-align: center;
 }
@@ -99,32 +99,29 @@ h1 {
     align-self: center;
 }
 
-
 .previousArrow,
-.nextArrow, .saveArrow {
+.nextArrow,
+.saveArrow {
     background-color: rgb(211, 214, 214);
     padding: 8px 16px;
     border-radius: 20px;
-    margin-right: 25px;
 }
-
 
 a {
     text-decoration: none;
 }
-.inputAnswer{
-    display:flex;
-}
-.submitAnswer{
-    width:15%;
-   
-   
-}
-.input{
-    margin-left:100px;
+
+.inputAnswer {
+    display: flex;
 }
 
+.submitAnswer {
+    width: 15%;
+}
 
+.input {
+    margin-left: 100px;
+}
 
 .card-inner {
     width: 100%;
@@ -134,7 +131,6 @@ a {
     position: relative;
     text-align: center;
 }
-
 
 .card {
     width: 100%;
@@ -169,22 +165,23 @@ a {
 .flipped .card-inner {
     transform: rotateY(180deg);
 }
-.volumeImage{
+
+.volumeImage {
     float: right;
 }
-.readAloud{
+
+.readAloud {
     display: none;
 }
 
-/* Add this to your existing CSS styles */
 .tooltip-wrapper {
-    position:relative;
+    position: relative;
     display: inline-block;
 }
 
 .tooltip-text {
     position: absolute;
-    top: -30px; 
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
     background: #000;
@@ -199,42 +196,58 @@ a {
 .tooltip-wrapper:hover .tooltip-text {
     opacity: 1;
 }
-.flashcards-container{
+
+.flashcards-container {
     overflow: scroll;
 }
 
-
-/* Add media query for smaller screens */
 @media (max-width: 600px) {
-    header h1 {
-        font-size: medium; /* Adjusted font size for smaller screens */
+    *{
+        margin:3px;
     }
 
     .flip-card {
-        width: 100%; /* Adjusted width for smaller screens */
+        width: 100%;
     }
-
 
     .previousArrow,
     .nextArrow,
     .saveArrow {
-        margin-right: 5px; /* Adjusted margin for better spacing on smaller screens */
+        margin-right: 5px;
     }
-.flip-card-container{
-    width:400px;
-   
-}
-h1{
-    width: 90%;
-    text-align:center;
-    font-size: large;
-}
-.homepage{
-    width:100%;
-    margin-right:5px;
-    font-size: small;
-}
+
+    .flip-card-container {
+        width: 100px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: large;
+    }
+
+    .homepage {
+        width: 100%;
+        margin-right: 5px;
+        font-size: small;
+    }
+
+    .saveArrow {
+        background-color: rgb(211, 214, 214);
+        margin-top: 20px;
+        margin-left: 110px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
     
+    .flip-card-front,
+.flip-card-back {
+    width: 407px;
+    margIn-left: 7px;
+
+}
 }
 
 .overlay {
@@ -258,4 +271,6 @@ h1{
 .emptyFlashcard {
     color: red;
 }
-
+:focus {
+    outline: 2px solid #007bff;
+}

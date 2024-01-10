@@ -7,51 +7,60 @@
     <title>Create Flashcard</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        *{
+        * {
             overflow: hidden;
         }
-        body{
-            overflow-y:scroll;
-        }
 
+        .flashcard-form {
+            overflow-y: scroll;
+        }
     </style>
 </head>
 
 <body>
-    <a href="index.html" class="homepage">Back to Homepage</a>
-   
-    <h1>Create your flashcards:</h1>
-   
-    <div class="flashcard-form">
-        <label for="question">Question:</label><br>
-        <textarea id="question" rows="4" cols="50"></textarea>
-        <br><br><br>
-        <label for="answer">Answer:</label><br>
-        <textarea id="answer" rows="4" cols="50"></textarea><br><br>
-        <div class="buttons">
-            <div class="previousArrow" onclick="addFlashcard()">Add flashcard</div>
-            <div class="nextArrow" onclick="viewFlashcards()">View flashcard</div>
-        </div>
-        <div class="saveArrow" onclick="saveFlashcards()">Save flashcards</div>
+    <nav>
+        <a href="index.html" class="homepage">Back to Homepage</a>
+    </nav>
 
-       
-    </div>
+    <header>
+        <h1>Create your flashcards:</h1>
+    </header>
 
-    <aside class="flashcards-container">
-        
+    <main class="flashcard-form">
+        <form>
+            <label for="question">Question:</label><br>
+            <textarea id="question" rows="4" cols="50" oninput="checkInputs()" aria-labelledby="question-label"></textarea>
+            <br><br><br>
+            <label for="answer">Answer:</label><br>
+            <textarea id="answer" rows="4" cols="50" oninput="checkInputs()" aria-labelledby="answer-label"></textarea><br><br>
+            <div class="buttons">
+                <button class="previousArrow" type="button" onclick="addFlashcard()" id="addFlashcardBtn">Add flashcard</button>
+                <button class="nextArrow" type="button" onclick="viewFlashcards()">View flashcard</button>
+            </div>
+            <button class="saveArrow" type="button" onclick="saveFlashcards()">Save flashcards</button>
+
+            <p id="flashcardCount" aria-live="polite"></p>
+        </form>
+    </main>
+
+    <section class="flashcards-container">
         <!-- Flashcards will be dynamically added here -->
-    </aside>
-    <button class="shareButton">Share flashcard</button>
+    </section>
+
+    <button class="shareButton" type="button" onclick="shareFlashcards()">Share flashcard</button>
+
     <!-- Placeholder for displaying the message when no flashcards are available -->
     <p class="emptyFlashcard"></p>
-      <!-- Custom modal overlay and container -->
-      <div class="overlay" id="modalOverlay">
-        <div class="modal" id="modalContainer">
+
+    <!-- Custom modal overlay and container -->
+    <aside class="overlay" id="modalOverlay">
+        <article class="modal" id="modalContainer">
             <span onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
             <h2>Flashcard Information</h2>
             <div id="modalContent"></div>
-        </div>
-    </div>
+        </article>
+    </aside>
+
     <script>
         let flashcards = [];
         let flashcardCounter = 0;
@@ -63,13 +72,10 @@
                 const flashcard = { question, answer };
                 flashcards.push(flashcard);
                 flashcardCounter++;
-
-                // Clear input fields
                 document.getElementById('question').value = '';
                 document.getElementById('answer').value = '';
-
-                // Update flashcards and count in the DOM
                 updateFlashcardCount();
+                checkInputs(); // Disable the button after adding a flashcard
             } else {
                 alert('Please enter both question and answer.');
             }
@@ -90,13 +96,12 @@
 
         function updateFlashcards() {
             const flashcardsContainer = document.querySelector('.flashcards-container');
-            flashcardsContainer.innerHTML = ''; // Clear the existing content
+            flashcardsContainer.innerHTML = '';
 
-            flashcards.forEach((flashcard, index) => {
+            flashcards.forEach(flashcard => {
                 const card = document.createElement('div');
                 card.classList.add('flashcard');
                 card.innerHTML = `<strong>Question:</strong> ${flashcard.question}<br><strong>Answer:</strong> ${flashcard.answer}`;
-                
                 flashcardsContainer.appendChild(card);
             });
         }
@@ -107,46 +112,35 @@
             flashcardCountElement.style.color = 'green';
         }
 
-        function showPreviousCard() {
-            // Implement logic to show the previous flashcard
-        }
-
-        function showNextCard() {
-            // Implement logic to show the next flashcard
-        }
-
         function viewFlashcards() {
-    // Show the first flashcard by default
-    if (flashcards.length > 0) {
-        updateFlashcards();
-        updateFlashcardCount();
+            if (flashcards.length > 0) {
+                updateFlashcards();
+                updateFlashcardCount();
+                const flashcardsContainer = document.querySelector('.flashcards-container');
+                if (!flashcardsContainer.querySelector('.exitButton')) {
+                    flashcardsContainer.appendChild(addExitButton());
+                }
+            } else {
+                alert('No flashcards to view. Add flashcards first.');
+            }
+        }
 
-        // Add the exit button to the flashcards container
-        const flashcardsContainer = document.querySelector('.flashcards-container');
-        flashcardsContainer.appendChild(addExitButton());
-    } else {
-        alert('No flashcards to view. Add flashcards first.');
-    }
-}
+        function addExitButton() {
+            const exitButton = document.createElement('button');
+            exitButton.textContent = 'Exit';
+            exitButton.classList.add('exitButton');
+            exitButton.addEventListener('click', () => {
+                clearFlashcards();
+                console.log('Exit button clicked!');
+            });
+            return exitButton;
+        }
 
-function addExitButton() {
-    const exitButton = document.createElement('button');
-    exitButton.textContent = 'Exit';
-    exitButton.addEventListener('click', () => {
-        // Clear the flashcards content when the exit button is clicked
-        clearFlashcards();
-        // Add any additional logic you want to perform when the exit button is clicked
-        console.log('Exit button clicked!');
-        // You can close the flashcard view or perform other actions here
-    });
-    return exitButton;
-}
-function clearFlashcards() {
-    const flashcardsContainer = document.querySelector('.flashcards-container');
-    flashcardsContainer.innerHTML = '';
-}
-
-      // Custom "Super Share" function using Clipboard API
+        function clearFlashcards() {
+            const flashcardsContainer = document.querySelector('.flashcards-container');
+            flashcardsContainer.innerHTML = '';
+        }
+ // Custom "Super Share" function using Clipboard API
       const superShareFlashcards = async () => {
             if (flashcards.length > 0) {
                 try {
@@ -196,6 +190,17 @@ function clearFlashcards() {
             }
         };
         document.querySelector('.shareButton').addEventListener('click', shareFlashcards)
+
+        function checkInputs() {
+            const questionInput = document.getElementById('question').value.trim();
+            const answerInput = document.getElementById('answer').value.trim();
+            const addFlashcardBtn = document.getElementById('addFlashcardBtn');
+            if (questionInput && answerInput) {
+                addFlashcardBtn.removeAttribute('disabled');
+            } else {
+                addFlashcardBtn.setAttribute('disabled', 'true');
+            }
+        }
     </script>
 </body>
 

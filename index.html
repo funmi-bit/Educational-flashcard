@@ -6,55 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Flashcard</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-MQCEmHDtK3hW19Iz3qVn/7zmxFlgCY2SssUek4FkN5Wg6P2zFf5aT91yegLrSNCz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-MQCEmHDtK3hW19Iz3qVn/7zmxFlgCY2SssUek4FkN5Wg6P2zFf5aT91yegLrSNCz" crossorigin="anonymous">
     <audio id="flipSound" src="flipcard.mp3"></audio>
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <h1>FLASH CARD</h1>
-<!-- Flip Card Container -->
-<div class="flip-card-container">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <div class="tooltip-wrapper">
-                    <a href="#" class="readQuestion" onclick="readQuestion()">
-                        <img src="volume.png" alt="read text aloud" class="volumeImage" width="10%">
-                        <span class="tooltip-text">Read Aloud</span>
-                    </a>
-                </div>
-                <div class="question"></div>
-                <input type="text" id="userAnswer" placeholder="Your Answer">
-                <button class="checkAnswer">Check Answer</button>
-            </div>
-            <div class="flip-card-back">
-                <div class="tooltip-wrapper">
-                    <a href="#" class="readAnswer" onclick="readAnswer()">
-                        <img src="volume.png" alt="read text aloud" class="volumeImage" width="10%">
-                        <span class="tooltip-text">Read Aloud</span>
-                    </a>
-                </div>
-                <div class="answer"></div>
-            </div>
-        </div>
-    </div>
-</div>
+    <header>
+        <h1>FLASH CARD</h1>
+    </header>
 
-    <button class="viewA" onclick="playFlipSound()">View Answer</button>
+    <!-- Main content -->
+    <article class="flip-card" aria-labelledby="flashcardLabel">
+        <section class="flip-card-inner">
+            <section class="flip-card-front">
+                <div class="tooltip-wrapper">
+                    <a href="#" class="readQuestion" onclick="flashcardApp.readQuestion()" onkeydown="flashcardApp.handleKey(event, 'readQuestion')" aria-label="Read Question Aloud" role="button" tabindex="0">
+                        <img src="volume.png" alt="Read Question Aloud" class="volumeImage" width="10%" aria-label="Read Question Aloud">
+                        <span class="tooltip-text">Read Aloud</span>
+                    </a>
+                </div>
+                <div class="question" role="textbox" aria-multiline="true"></div>
+               
+                <label for="userAnswer">Your Answer:</label>
+                <input type="text" id="userAnswer" placeholder="Your Answer" aria-label="Your Answer">
+                <button class="checkAnswer" onclick="flashcardApp.checkAnswer()" onkeydown="flashcardApp.handleKey(event, 'checkAnswer')" role="button" tabindex="0">Check Answer</button>
+            </section>
+            <section class="flip-card-back">
+                <div class="tooltip-wrapper">
+                    <a href="#" class="readAnswer" onclick="flashcardApp.readAnswer()" aria-label="Read Answer Aloud" role="button">
+                        <img src="volume.png" alt="Read Answer Aloud" class="volumeImage" width="10%">
+                        <span class="tooltip-text">Read Aloud</span>
+                    </a>
+                </div>
+                <div class="answer" role="textbox" aria-multiline="true"></div>
+            </section>
+        </section>
+    </article>
+
+    <button class="viewA" onclick="flashcardApp.playFlipSound()" role="button">View Answer</button>
+    <aside class="feedbackMessage" aria-live="assertive"></aside>
 
     <!-- Navigation Arrows -->
-    <span class="roundArrows">
-        <a href="#" class="previousArrow">&#8249;</a>
+    <nav class="roundArrows" aria-label="Question Navigation">
+        <br><br>
+        <a href="#" class="previousArrow" aria-label="Previous Question" role="button">&#8249;</a>
         <span class="countQuestions">
-            <span>1</span>
+            <span></span>
         </span>
-        <a href="#" class="nextArrow">&#8250;</a>
-    </span>
-    <h1><a href="newFlashcards.html">Click here to create flashcards</a></h1>
+        <a href="#" class="nextArrow" aria-label="Next Question" role="button">&#8250;</a>
+    </nav>
 
-   
+    <h2><a href="newFlashcards.html" role="button">Click here to create flashcards</a></h2>
+
 </body>
 
 </html>
