@@ -4,40 +4,39 @@
         "answer": "Paris"
     },
     {
-        "question": "What is the significance of photosynthesis in plants?",
-        "answer": "Photosynthesis is the process by which plants convert sunlight into energy, producing glucose and oxygen as byproducts..."
+        "question": "Who wrote the play \"Romeo and Juliet\"?",
+        "answer": "William Shakespeare."
     },
     {
-        "question": "How does the water cycle contribute to Earth's ecosystems?",
-        "answer": "The water cycle involves the continuous movement of water between the atmosphere, land, and oceans through processes such as evaporation, condensation, precipitation, and runoff. This cycle sustains life by providing freshwater for plants, animals, and human populations, influencing weather patterns and supporting diverse ecosystems."
+        "question": "What is the largest planet in our solar system?",
+        "answer": "Jupiter"
     },
     {
-        "question": "What is the role of DNA in genetics",
-        "answer": "DNA, or deoxyribonucleic acid, carries genetic information in living organisms. It contains instructions for the development, functioning, and reproduction of cells. The sequence of nucleotides in DNA molecules determines the genetic code, influencing an organism's traits and characteristics."
+        "question": "Who discovered penicillin?",
+        "answer": "Sir Alexander Fleming."
     },
     {
-        "question": "What is the greenhouse effect, and how does it contribute to climate change?",
-        "answer": "The greenhouse effect is the trapping of heat in the Earth's atmosphere by certain gases, such as carbon dioxide and methane. While essential for maintaining a habitable temperature, human activities, such as burning fossil fuels, enhance this effect, leading to global warming and contributing to climate change"
+        "question": "What is the formula for calculating the area of a rectangle?",
+        "answer": "(A = l * w)."
     },
     {
-        "question": "What is the importance of the periodic table in chemistry?",
-        "answer": "The periodic table is a tabular arrangement of chemical elements, organized based on their atomic number and electron configuration. It provides essential information about the properties and relationships of elements, aiding in the understanding of chemical behavior and the prediction of element properties."
+        "question": "In which year did Christopher Columbus first reach the Americas?",
+        "answer": "1492."
     },
     {
-        "question": "Define the term 'ecosystem' and provide an example.",
-        "answer": "An ecosystem is a community of living organisms interacting with each other and their non-living environment. An example is a forest ecosystem, where trees, plants, animals, and microorganisms coexist and interact within a specific geographical area."
+        "question": "What is the powerhouse of the cell?",
+        "answer": "mitochondrion."
     },
     {
-        "question": "What is the role of the mitochondria in a cell?",
-        "answer": "Mitochondria are often referred to as the 'powerhouses' of the cell. They are responsible for cellular respiration, a process that converts nutrients into energy in the form of adenosine triphosphate (ATP), providing the energy needed for various cellular activities."
+        "question": "Who is known as the \"Father of Modern Physics\"?",
+        "answer": "Albert Einstein"
     },
     {
-        "question": "Explain the concept of gravitational force.",
-        "answer": "Gravitational force is the attractive force between two masses. Sir Isaac Newton described it in his law of universal gravitation, stating that every mass attracts every other mass in the universe with a force proportional to the product of their masses and inversely proportional to the square of the distance between their centers."
+        "question": "What is the Earth's largest ocean?",
+        "answer": "Pacific Ocean."
     },
     {
-      "question": "Explain the concept of supply and demand in economics.",
-      "answer": "Supply and demand are fundamental economic principles.The law of supply states that as the price of a good or service increases, the quantity supplied also increases, while the law of demand states that as the price increases, the quantity demanded decreases.The intersection of these curves determines the market equilibrium."
-
+        "question": "Who painted the Mona Lisa?",
+        "answer": "Leonardo da Vinci."
     }
 ]
